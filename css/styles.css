@@ -4,7 +4,7 @@ body {
     font-family: "Lato";
     font-style: normal;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 16px;
     line-height: 120%;
     color: #222831;
 }
@@ -111,7 +111,6 @@ nav h3 {
 
 .navbar-links {
     display: flex;
-    justify-content: space-between;
 }
 
 .navbar-buttons {
@@ -191,7 +190,7 @@ nav h3 {
     margin-top: 35px;
 }
 
-.hero-search_section {
+.hero {
     background: url('../img/image\ 10.png');
     background-repeat: no-repeat;
     background-size: cover;
@@ -306,8 +305,8 @@ nav h3 {
     align-items: center;
 }
 .pse-section .left img {
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
 }
 
 .pse-section .right {
@@ -326,6 +325,7 @@ nav h3 {
 
 .pse-left_feature {
     display: flex;
+    align-items: center;
 }
 .pse-left_feature img {
     padding-right: 30px;
@@ -365,3 +365,17 @@ nav h3 {
     background-color: var(--secondaryLight);
     color: white;
 }
+section {
+    width: 100%;
+}
+
+.owl-nav {
+    display: none;
+}
+
+* , *:before, *:after{ 
+    box-sizing:border-box; 
+    -moz-box-sizing:border-box; 
+    -webkit-box-sizing:border-box; 
+    -ms-box-sizing:border-box;
+  }
