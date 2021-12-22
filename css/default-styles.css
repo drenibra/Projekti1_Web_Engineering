@@ -28,10 +28,6 @@ nav h3 {
     justify-content: space-between;
 }
 
-.fullWidth {
-    width: 100%;
-}
-
 .whiteText {
     color: white;
 }
@@ -338,4 +334,8 @@ main, header, footer {
 }
 .hero-upper .navbar-buttons {
     display: none;
+}
+
+.fullWidth {
+    width: 100%;
 }

@@ -152,6 +152,35 @@
     }
 }
 
+@media (max-width: 1111px) {
+    .flex-responsive {
+        flex-direction: column;
+    }
+    .form-section .container {
+        position: unset;
+    }
+    .form-section_left {
+        width: 100%;
+    }
+    .form-section_left--item {
+        justify-content: center;
+    }
+    .form-section_right {
+        width: 100%;
+    }
+    form .flex-responsive div {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .form-section_right form .flex-responsive {
+        margin: 0;
+    }
+    .hero-content {
+        width: 100%;
+    }
+}
+
 .owl-item {
     display: flex;
     justify-content: center;

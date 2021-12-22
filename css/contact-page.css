@@ -40,7 +40,7 @@ nav.container {
     width: 50%;
     font-size: 1.5rem;
     font-weight: 400;
-    margin: 20px;
+    margin: 20px auto;
     align-self: flex-start;
 }
 .form-section_right {
@@ -85,7 +85,7 @@ form .btn {
 .form-section_right form label {
     font-weight: 400;
 }
-.form-section_right form .flex {
+.form-section_right form .flex-responsive {
     margin: 20px 0;
 }
 .container {
