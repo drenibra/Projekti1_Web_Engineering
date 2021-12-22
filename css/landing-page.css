@@ -1,112 +1,3 @@
-/* APPLIEST TO ALL */
-
-body {
-    font-family: "Lato";
-    font-style: normal;
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 120%;
-    color: #222831;
-}
-
-:root {
-    --primary: #10375C;
-    --primaryDark: #0D2C4A;
-    --secondaryDark: #DD2C00;
-    --secondaryLight: #FF5722;
-    --paragraph: #6A6A6A;
-}
-
-span.secondary {
-    color: var(--secondaryDark);
-}
-
-h1 {
-    font-family: "Lora";
-    font-style: normal;
-    font-weight: bold;
-    font-size: 52px;
-    line-height: 128%;
-    color: var(--secondaryDark);
-}
-
-h2 {
-    font-family: "Lora";
-    font-style: normal;
-    font-weight: bold;
-    font-size: 40px;
-    line-height: 51px;
-    color: var(--primary);
-}
-
-h3 {
-    font-family: "Lato";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 40px;
-    font-size: 3rem;
-    line-height: 51px;
-    columns: white;
-}
-
-nav h3 {
-    font-size: 2rem;
-}
-
-.section_paragraph-text {
-    font-family: "Lato";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 150%;
-    color: var(--paragraph);
-}
-
-.container {
-    margin: 0 auto;
-    max-width: 1200px;
-    padding: 0 20px;
-    width: 100%;
-}
-
-.line {
-    width: 73px;
-    height: 2px;
-    background: #222831;
-    display: block;
-    margin-left: 20px;
-}
-
-.flex {
-    display: flex;
-    align-items: center;
-}
-
-.btn {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 103px;
-    height: 43px;
-    border: none;
-    font-family: inherit;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 16px;
-}
-
-.btn.default {
-    background: white;
-    color: var(--secondaryLight);
-}
-
-.btn.action {
-    background: var(--secondaryLight);
-    color: white;
-    box-shadow: 0px 4px 16px rgba(255, 87, 34, 0.32);
-}
-
 /* NAVIGATION BAR */
 
 .navbar-links {
@@ -133,8 +24,9 @@ nav h3 {
     font-weight: bolder;
 }
 
-/* HERO SECTION */
-
+.space-between {
+    justify-content: space-between;
+}
 .fullWidth {
     width: 100%;
 }
@@ -142,6 +34,8 @@ nav h3 {
 .whiteText {
     color: white;
 }
+/* HERO SECTION */
+
 .hero-upper .container, .hero .container {
     display: flex;
     align-items: center;
@@ -206,15 +100,18 @@ nav h3 {
 
 /* PUNET */
 
-.punet-section_arrows img {
+.section_arrows img {
     padding: 0 20px;
 }
-.punet-section_arrows:hover {
+.section_arrows:hover {
     cursor: pointer;
 }
 .punet {
     width: 100%;
     margin: 120px 0;
+}
+.punet .container:first-of-type {
+    margin-bottom: 40px;
 }
 .punet .section_paragraph-text {
     width: 60%;
@@ -291,13 +188,9 @@ nav h3 {
     padding: 20px 0;
 }
 
-.punet .container:last-of-type {
-    margin: 90px auto;
-}
-
 /* PSE FEATURES */
 
-.pse-section .right, .pse-section .right p, .pse-section .right h2, .pse-section .right .line {
+.pse-section .right, .pse-section .right p, .pse-section .right h2, .pse-section {
     color: white;
 }
 .pse-section .container {
@@ -333,6 +226,7 @@ nav h3 {
 .pse-left_feature div p:first-of-type {
     font-size: 1.5rem;
     font-family: "Lora";
+    color: var(--primary);
 }
 .left {
     width: 50%;
@@ -361,7 +255,9 @@ nav h3 {
 .kerkesat-options .left {
     margin: 20px;
 }
-.kerkesat-options .left  {
+.kerkesat-options .left li:hover {
+    background-color: var(--secondaryLight);
+    color: white;
 }
 section {
     width: 100%;
@@ -371,9 +267,167 @@ section {
     display: none;
 }
 
-* , *:before, *:after{ 
+* , *:before, *:after { 
     box-sizing:border-box; 
     -moz-box-sizing:border-box; 
     -webkit-box-sizing:border-box; 
     -ms-box-sizing:border-box;
-  }
+}
+
+/* PARTNERET */
+
+.partneret-section .partneret img {
+    width: 200px;
+    height: auto;
+}
+.partneret-section .partneret {
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.partneret-section {
+    text-align: center;
+    padding: 50px 0 75px 0;
+    background: rgb(246, 246, 246);
+}
+.partneret-section p {
+    padding: 30px 0;
+}
+
+/* REVIEW */
+.reviews {
+    margin: 50px 0;
+}
+.reviews .container:last-of-type {
+    margin: 35px auto;
+}
+.review-article {
+    background-color: var(--primary);
+    padding: 40px 30px 35px 30px;
+    margin: 15px;
+}
+
+.review-article_user {
+    padding-top: 30px;
+}
+
+.user_info-name {
+    font-weight: 500 !important;
+}
+
+.review-article p {
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 300;
+    color: white;
+    font-size: 1rem;
+    line-height: 162%;
+}
+
+.review-article_user img {
+    margin-right: 20px;
+    width: 50px !important;
+    height: 50px;
+}
+
+.lajme .secondary img {
+    padding-left: 20px;
+}
+
+.lajme {
+    background: rgb(246, 246, 246);
+    padding: 70px 0;
+}
+.lajme-articles {
+    margin: 0 auto;
+    padding-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.lajme-articles_article {
+    background: #ffff;
+    width: 355px;
+    margin: 15px;
+            /* offset-x | offset-y | blur-radius | spread-radius | color */
+    box-shadow: 0px 20px 20px 1px rgba(0, 0, 0, 0.1);
+}
+.lajme-articles_article img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.article_info {
+    padding: 20px;
+}
+.lajme .secondary {
+    margin-top: 30px;
+}
+.footer-upper {
+    padding: 100px 0;
+    background: var(--primary);
+    color: white !important;
+}
+.footer-upper h2 {
+    margin: 25px 0;
+}
+.footer-upper p {
+    color: white;
+    font-weight: 300;
+}
+footer {
+    background: var(--primaryDark);
+    color: white !important;
+    padding: 70px 0;
+    font-weight: 300;
+}
+.footer-left {
+    width: 30%;
+}
+.footer-text {
+    margin-bottom: 30px;
+}
+.footer-left .btn {
+    width: 100%;
+    padding: 25px 0;
+}
+footer .container div:first-of-type {
+    width: 30%;
+    align-self: flex-start;
+    justify-content: center;
+}
+.footer-right {
+    width: 60%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.footer-right .flex:first-of-type {
+    justify-content: space-between;
+    width: 40%;
+    align-self: flex-start;
+}
+.footer-right .flex:last-of-type {
+    width: 50%;
+    align-self: flex-start;
+    justify-content: space-between;
+}
+footer .container {
+    justify-content: space-between;
+}
+footer .container div p {
+    margin: 30px 0;
+    line-height: 160%;
+}
+footer .container div a {
+    line-height: 160%;
+    padding: 0 6px;
+}
+footer ul {
+    text-align: left;
+    align-self: baseline;
+    line-height: 250%;
+}
+footer ul li:first-of-type {
+    padding-bottom: 30px;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.569);
+    font-weight: 400;
+}
