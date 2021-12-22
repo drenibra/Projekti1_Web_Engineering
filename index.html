@@ -5,10 +5,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/default-styles.css">
+    <link rel="stylesheet" href="css/landing-page.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css">
@@ -21,12 +20,13 @@
             <ul class="navbar-links">
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Shpalljet</a></li>
+                <li><a href="#">Lajme</a></li>
                 <li><a href="#">Rreth Nesh</a></li>
                 <li><a href="#">Kontakt</a></li>
             </ul>
             <div class="navbar-buttons">
-                <button class="btn default">Kyçu</button>
-                <button class="btn action">Krijo Llogari</button>
+                <button class="btn default loginBtn">Kyçu</button>
+                <button class="btn action signupBtn">Krijo Llogari</button>
             </div>
         </nav>
     </header>
@@ -34,8 +34,8 @@
         <section class="hero-upper">
             <div class="container">
                 <div class="hero-right">
-                    <div class="flex section-introduction">
-                        <p>Introducing</p>
+                    <div class="flex-responsive">
+                        <p class="section-introduction">Introducing</p>
                         <span class="line"></span>
                     </div>
                     <h1>Gjej Punë!</h1>
@@ -97,9 +97,9 @@
                 <p class="section_paragraph-text">Our space is designed to give you a different experience 
                     when working with your team or personally
                 </p>
-                <div class="punet-section_arrows flex">
-                    <img src="img/arrow-left.svg" alt="arrow-left" id="arrow-left">
-                    <img src="img/arrow-right.svg" alt="arrow-right" id="arrow-right">
+                <div class="section_arrows flex">
+                    <img src="img/arrow-left.svg" alt="arrow-left" class="arrow-left">
+                    <img src="img/arrow-right.svg" alt="arrow-right" class="arrow-right">
                 </div>
             </div>
             <div class="container owl-carousel">
@@ -168,7 +168,7 @@
                     <div class="right">
                         <div class="flex">
                             <p class="section_paragraph-text">Pse gjejpune?</p>
-                            <span class="line"></span>
+                            <span class="line whiteLine"></span>
                         </div>
                         <h2>Ne ju gjejmë vendet më adekuate të punës</h2>
                         <p>Si një platformë e njohur me shumë përdorues nga i 
@@ -176,7 +176,6 @@
                         </p>
                     </div>
                 </div>
-            
         </section>
         <section class="kerkesat-section">
             <div class="container">
@@ -187,11 +186,11 @@
                 <h2>Të gjithë llojet e punëve në bazë të kërkesave</h2>    
                 <div class="kerkesat-options flex">
                     <ul class="left">
-                        <li id="kerkesat-options_element" class="">Arkitekt</li>      
-                        <li id="kerkesat-options_element" class="">Autolarje</li>      
-                        <li id="kerkesat-options_element" class=" active">Kamarier</li>      
-                        <li id="kerkesat-options_element" class="">Mësues</li>      
-                        <li id="kerkesat-options_element" class="">Mekanik i veturave</li>      
+                        <li class="kerkesat-options_element" class="">Arkitekt</li>      
+                        <li class="kerkesat-options_element" class="">Autolarje</li>      
+                        <li class="kerkesat-options_element active">Kamarier</li>      
+                        <li class="kerkesat-options_element" class="">Mësues</li>      
+                        <li class="kerkesat-options_element" class="">Mekanik i veturave</li>      
                     </ul>
                     <img src="img/puna1.png" alt="puna1" class="right">
                 </div>
@@ -200,13 +199,242 @@
         <section class="partneret-section">
             <div class="container">
                 <h2>Kush e përkrahë Gjej Punë?</h2>
-                <p>Brendet më të mëdha në Kosovë</p>
-                <div class="partneret"></div>
+                <p class="section_paragraph-text">Brendet më të mëdha në Kosovë</p>
+                <div class="partneret flex">
+                    <a href="https://vivafresh-rks.com/"><img src="img/viva-logo.png" alt="viva-logo"></a>
+                    <a href="https://www.hibpetrol.com/"><img src="img/hib-logo.png" alt="hib-logo"></a>
+                    <a href="https://www.raiffeisen-kosovo.com/"><img src="img/raiffeisen-logo.png" alt="raiffeisen-logo"></a>
+                    <a href="https://www.elkosgroup.com/"><img src="img/elkos-logo.png" alt="elkos-logo"></a>
+                </div>
+            </div>
+        </section>
+        <section class="reviews">
+            <div class="container">
+                <div class="flex-responsive space-between">
+                    <div>
+                        <div class="flex section-introduction">
+                            <p>Rishikimet</p>
+                            <span class="line"></span>
+                        </div>
+                        <h2>Çka thonë klientët tanë</h2>
+                    </div>
+                    <div class="section_arrows flex">
+                        <img src="img/arrow-left.svg" alt="arrow-left" class="arrow-left">
+                        <img src="img/arrow-right.svg" alt="arrow-right" class="arrow-right">
+                    </div>
+                </div>
+            </div>
+            <div class="container owl-carousel">
+                <article class="review-article">
+                    <p>
+                        Ekipi ynë ka punuar me GjejPune për gati 2 muaj sepse zyra jonë dëshiron të bëjë zgjerim. 
+                        Gjatë bashkpunimit me GjejPune, ne ndjejmë një përvojë të re, mund të ndihemi duke punuar me një 
+                        hapësirë të bukur, moderne dhe komode.
+                        Faleminderit për GjejPune dhe ekipin.
+                    </p>
+                    <div class="review-article_user flex">
+                        <img src="img/user1.png" alt="user-profile">
+                        <div class="user_info">
+                            <p class="user_info-name">Filan Fisteku</p>
+                            <p class="user_info-job">Rekrutues Pune</p>
+                        </div>
+                    </div>
+                </article>
+                <article class="review-article">
+                    <p>
+                        Ekipi ynë ka punuar me GjejPune për gati 2 muaj sepse zyra jonë dëshiron të bëjë zgjerim. 
+                        Gjatë bashkpunimit me GjejPune, ne ndjejmë një përvojë të re, mund të ndihemi duke punuar me një 
+                        hapësirë të bukur, moderne dhe komode.
+                        Faleminderit për GjejPune dhe ekipin.
+                    </p>
+                    <div class="review-article_user flex">
+                        <img src="img/user2.png" alt="user-profile">
+                        <div class="user_info">
+                            <p class="user_info-name">Filan Fisteku</p>
+                            <p class="user_info-job">Rekrutues Pune</p>
+                        </div>
+                    </div>
+                </article>
+                <article class="review-article">
+                    <p>
+                        Ekipi ynë ka punuar me GjejPune për gati 2 muaj sepse zyra jonë dëshiron të bëjë zgjerim. 
+                        Gjatë bashkpunimit me GjejPune, ne ndjejmë një përvojë të re, mund të ndihemi duke punuar me një 
+                        hapësirë të bukur, moderne dhe komode.
+                        Faleminderit për GjejPune dhe ekipin.
+                    </p>
+                    <div class="review-article_user flex">
+                        <img src="img/user3.png" alt="user-profile">
+                        <div class="user_info">
+                            <p class="user_info-name">Filan Fisteku</p>
+                            <p class="user_info-job">Rekrutues Pune</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <section class="lajme">
+            <div class="container">
+                <div class="flex-responsive space-between">
+                    <h2>Lajme për ty</h2>
+                    <a class="flex secondary" href="#" class="flex">
+                        <p>Shiko më shumë</p>
+                        <img src="img/right arrow.svg" alt="right">
+                    </a>
+                </div>
+                <div class="lajme-articles">
+                    <a href="#" class="lajme-articles_article">
+                        <img src="img/news1.png" alt="news-image">
+                        <div class="article_info">
+                            <h4>Minimal workspace for inspirations</h4>
+                            <p class="section_paragraph-text">Anthony Masional</p>
+                        </div>
+                    </a>
+                    <a href="#" class="lajme-articles_article">
+                        <img src="img/news2.png" alt="news-image">
+                        <div class="article_info">
+                            <h4>Does productivity increase when working remotely ? </h4>
+                            <p class="section_paragraph-text">Franck Martin</p>
+                        </div>
+                    </a>
+                    <a href="#" class="lajme-articles_article">
+                        <img src="img/news3.png" alt="news-image">
+                        <div class="article_info">
+                            <h4>Morning routine to boost your mood</h4>
+                            <p class="section_paragraph-text">Elizabeth swan</p>
+                        </div>
+                    </a>
+                    <a href="#" class="lajme-articles_article">
+                        <img src="img/news4.png" alt="news-image">
+                        <div class="article_info">
+                            <h4>5+ tips to find comfortable co-working space</h4>
+                            <p class="section_paragraph-text">Mykola Ilschenko</p>
+                        </div>
+                    </a>
+                    <a href="#" class="lajme-articles_article">
+                        <img src="img/slider1.png" alt="news-image">
+                        <div class="article_info">
+                            <h4>5+ tips to find comfortable co-working space</h4>
+                            <p class="section_paragraph-text">Mykola Ilschenko</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section class="footer-upper">
+            <div class="container">
+                <div class="flex-responsive">
+                    <div class="footer-left">
+                        <div class="flex-responsive">
+                            <p class="section-introduction">Bëhuni anëtar</p>
+                            <span class="line whiteLine"></span>
+                        </div>
+                        <h2 class="whiteText">Gati për të gjetur punë?</h2>
+                        <p class="section_paragraph-text footer-text">Merrni përvojën më të mirë të punës që nuk e keni ndjerë kurrë më parë</p>
+                        <button class="btn action signupBtn">SIGN UP NOW</button>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
+    <footer>
+        <div class="container flex-responsive">
+            <div>
+                <h1 class="whiteText">Gjej Punë!</h1>
+                <p>Në gjejpune.net ju ofrojmë opsionet më të mira për 
+                    punësim në të gjitha qytetet në Kosovë dhe rajon!</p>
+                <div class="flex">
+                    <a href="https://www.instagram.com"><img src="img/instagram.svg" alt="instagram-logo"></a>
+                    <a href="https://www.youtube.com"><img src="img/youtube.svg" alt="youtube-logo"></a>
+                    <a href="https://www.facebook.com"><img src="img/facebook.svg" alt="facebook-logo"></a>
+                </div>        
+            </div>
+            <div class="flex footer-right">
+                <div class="flex">
+                    <ul>
+                        <li><a href="#">Punet</a></li>
+                        <li><a href="#">Programer</a></li>
+                        <li><a href="#">Arkitekt</a></li>
+                        <li><a href="#">Kamarier</a></li>
+                        <li><a href="#">Ekonomist</a></li>
+                        <li><a href="#">Biolog</a></li>
+                        <li><a href="#">Kontabilist</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="#">Kompania</a></li>
+                        <li><a href="#">Rreth Nesh</a></li>
+                        <li><a href="#">Çmimet</a></li>
+                    </ul>
+                </div>
+                <div class="flex">
+                    <ul>
+                        <li><a href="#">Mbështetje</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="#">Kontakto</a></li>
+                        <li><a href="#">contact@gjejpune.com</a></li>
+                        <li><a href="#">di53843@ubt-uni.net</a></li>
+                        <li><a href="#">em52473@ubt-uni.net</a></li>
+                        <li><a href="#">+383 44 xxx xxx</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
     <script src="js/jquery-3.6.0.min.js"></script>
-    <script src="js/app.js"></script>
     <script src="OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
+    <script src="js/app.js"></script>
+    <div id="modal-login">
+        <div class="modal-box">
+            <img class="closeBtn" src="img/close-button.svg" alt="close-button">
+            <div class="container">
+                <h2 class="center-text">Mirëse u kthyet!</h2>
+                <form action="">
+                    <label for="username">Username</label>
+                    <input required type="text" name="username" id="username">
+                    <label for="password">Password</label>
+                    <input required type="password" name="password" id="password">
+                    <div class="flex maxwidth">
+                        <input type="submit" class="btn action" value="Log In">
+                        <button type="button" class="btn closeBtn signupBtn">Sign Up</button>    
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="modal-signup">
+        <div class="modal-box">
+            <img class="closeBtn" src="img/close-button.svg" alt="close-button">
+            <div class="container">
+                <h2 class="center-text">Mirëse vini!</h2>
+                <form action="">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="nameInput">
+                    <label class="err" id="nameError"></label>
+            
+                    <label for="surname">Surname</label>
+                    <input type="text" name="surname" id="surnameInput">
+                    <label class="err" id="surnameError"></label>
+            
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="usernameInput">
+                    <label class="err" id="usernameError"></label>
+            
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="passwordInput">
+                    <label class="err" id="passwordError"></label>
+            
+                    <label for="email">email</label>
+                    <input type="text" name="email" id="emailInput">
+                    <label class="err" id="emailError"></label>
+                    <div class="flex maxwidth">
+                        <input type="submit" id="signupSubmitBtn" class="btn action" value="Sign Up">
+                        <button type="button" class="btn closeBtn loginBtn">Log In</button>    
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
