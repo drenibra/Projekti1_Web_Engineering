@@ -31,6 +31,20 @@
 }
 
 @media (max-width: 886px) {
+    .hero-upper .navbar-buttons {
+        display: block;
+        width: 100%;
+    }
+    .hero-upper .navbar-buttons button {
+        width: 100%;
+    }
+    .hero-upper .navbar-buttons button:first-of-type {
+        border: 1px solid var(--secondaryLight);
+        margin: 20px 0;
+    }
+    .menu-wrap {
+        display: block;
+    }
     .navbar-links, .navbar-buttons {
         display: none;    
     }
