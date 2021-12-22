@@ -241,8 +241,17 @@ nav h3 {
 .kerkesat-section {
     margin: 100px auto;
 }
-.kerkesat-options img {
+.kerkesat-options {
+    height: 50%;
+}
+.kerkesat-options .right {
     width: 100%;
+    height: 100%;
+    background-image: url('../img/kamarier.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: all ease-in-out 0.2s;
 }
 .kerkesat-section h2 {
     width: 40%;
@@ -255,7 +264,11 @@ nav h3 {
 .kerkesat-options .left {
     margin: 20px;
 }
-.kerkesat-options .left li:hover {
+.kerkesat-options_element:hover {
+    background-color: var(--secondaryLight);
+    color: white;
+}
+.active-option {
     background-color: var(--secondaryLight);
     color: white;
 }

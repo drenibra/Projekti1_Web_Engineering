@@ -19,6 +19,7 @@
 @media (max-width: 980px) {
     .kerkesat-options {
         flex-direction: column;
+        height: 100%;
     }
     .kerkesat-section {
         text-align: center;
