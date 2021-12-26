@@ -24,9 +24,6 @@ nav.container {
 .form-section img {
     width: 70px;
 }
-.svg-primary_color {
-    filter: invert(56%) sepia(56%) saturate(6761%) hue-rotate(347deg) brightness(104%) contrast(101%);
-}
 
 /* FORM */
 
