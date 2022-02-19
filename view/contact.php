@@ -1,4 +1,7 @@
 <html lang="en">
+<?php
+  session_start();
+?>
   <head>
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -23,11 +26,10 @@
         <div>
           <div>
             <ul>
-              <a href="index.html" class="hamburgerItem"><li>Home</li></a>
+              <a href="index.php" class="hamburgerItem"><li>Home</li></a>
               <a href="#" class="hamburgerItem"><li>Shpalljet</li></a>
-              <a href="#" class="hamburgerItem"><li>Lajme</li></a>
-              <a href="#" class="hamburgerItem"><li>Rreth Nesh</li></a>
-              <a href="contact.html" class="hamburgerItem"><li>Kontakt</li></a>
+              <a href="about-us.php" class="hamburgerItem"><li>Rreth Nesh</li></a>
+              <a href="contact.php" class="hamburgerItem"><li>Kontakt</li></a>
             </ul>
           </div>
         </div>
@@ -35,18 +37,14 @@
     </div>
     <header>
       <nav class="container">
-        <a href="index.html"><h3>GjejPunë.net</h3></a>
+        <a href="index.php"><h3>GjejPunë.net</h3></a>
         <ul class="navbar-links">
-          <li><a href="index.html">Home</a></li>
+          <li><a href="index.php">Home</a></li>
           <li><a href="#">Shpalljet</a></li>
-          <li><a href="#">Lajme</a></li>
-          <li><a href="#">Rreth Nesh</a></li>
-          <li><a href="contact.html">Kontakt</a></li>
+          <li><a href="about-us.php">Rreth Nesh</a></li>
+          <li><a href="contact.php">Kontakt</a></li>
         </ul>
-        <div class="navbar-buttons">
-          <button class="btn default loginBtn">Kyçu</button>
-          <button class="btn action signupBtn">Krijo Llogari</button>
-        </div>
+        <?php include_once "../controller/loginButtons.php";?>
       </nav>
     </header>
     <main>
@@ -63,11 +61,7 @@
           <div class="flex-responsive">
             <div class="form-section_left">
               <div class="form-section_left--item flex">
-                <img
-                  class="svg-primary_color"
-                  src="img/phone.svg"
-                  alt="phone"
-               />
+                <img class="svg-primary_color" src="img/phone.svg" alt="phone" />
                 <div>
                   <p>Thirrni ne</p>
                   <a href="#">+383 44 xxx xxx</a>
@@ -128,58 +122,6 @@
     </main>
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/app.js"></script>
-    <div id="modal-login">
-      <div class="modal-box">
-        <img class="closeBtn" src="img/close-button.svg" alt="close-button"/>
-        <div class="container">
-          <h2 class="center-text">Mirëse u kthyet!</h2>
-          <form action="">
-            <label for="username">Username</label>
-            <input required type="text" name="username" id="username"/>
-            <label for="password">Password</label>
-            <input required type="password" name="password" id="password"/>
-            <div class="flex fullWidth">
-              <input type="submit" class="btn action" value="Log In"/>
-              <button type="button" class="btn closeBtn signupBtn">
-                Sign Up
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-    <div id="modal-signup">
-      <div class="modal-box">
-        <img class="closeBtn" src="img/close-button.svg" alt="close-button"/>
-        <div class="container">
-          <h2 class="center-text">Mirëse vini!</h2>
-          <form action="">
-            <label for="name">Name</label>
-            <input required type="text" name="name" id="nameInput"/>
-            <label class="err" id="nameError"></label>
-
-            <label for="surname">Surname</label>
-            <input required type="text" name="surname" id="surnameInput"/>
-            <label class="err" id="surnameError"></label>
-
-            <label for="username">Username</label>
-            <input required type="text" name="username" id="usernameInput"/>
-            <label class="err" id="usernameError"></label>
-
-            <label for="password">Password</label>
-            <input required type="password" name="password" id="passwordInput"/>
-            <label class="err" id="passwordError"></label>
-
-            <label for="email">email</label>
-            <input required type="text" name="email" id="emailInput"/>
-            <label class="err" id="emailError"></label>
-            <div class="flex maxwidth">
-              <input type="submit" id="signupSubmitBtn" class="btn action" value="Sign Up"/>
-              <button type="button" class="btn closeBtn loginBtn">Log In</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
+    <?php include_once "../controller/modal.php"; ?>
   </body>
 </html>

@@ -14,7 +14,9 @@ nav.container {
     align-items: center;
     margin: 75px auto;
 }
-
+.svg-primary_color {
+    filter: invert(56%) sepia(56%) saturate(6761%) hue-rotate(347deg) brightness(104%) contrast(101%);
+}
 .navbar-links li {
     padding: 0 20px;
 }

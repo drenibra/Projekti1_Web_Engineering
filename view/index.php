@@ -1,3 +1,6 @@
+<?php
+  session_start();
+?>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -5,27 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/default-styles.css" />
     <link rel="stylesheet" href="css/landing-page.css" />
     <link rel="stylesheet" href="css/responsive.css" />
-    <link
-      rel="shortcut icon"
-      href="img/favicon-32x32.png"
-      type="image/x-icon"
-    />
-    <link
-      rel="stylesheet"
-      href="OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css"
-    />
+    <link rel="shortcut icon" href="img/favicon-32x32.png" type="image/x-icon" />
+    <link rel="stylesheet" href="OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css" />
     <title>Gjej Punë!</title>
   </head>
   <body>
@@ -36,11 +26,10 @@
         <div>
           <div>
             <ul>
-              <a href="index.html" class="hamburgerItem"><li>Home</li></a>
-              <a href="#" class="hamburgerItem"><li>Shpalljet</li></a>
-              <a href="#" class="hamburgerItem"><li>Lajme</li></a>
-              <a href="#" class="hamburgerItem"><li>Rreth Nesh</li></a>
-              <a href="contact.html" class="hamburgerItem"><li>Kontakt</li></a>
+              <a href="index.php" class="hamburgerItem"><li>Home</li></a>
+              <a href="shpalljet.php" class="hamburgerItem"><li>Shpalljet</li></a>
+              <a href="about-us.php" class="hamburgerItem"><li>Rreth Nesh</li></a>
+              <a href="contact.php" class="hamburgerItem"><li>Kontakt</li></a>
             </ul>
           </div>
         </div>
@@ -48,21 +37,24 @@
     </div>
     <header>
       <nav class="container">
-        <a href="index.html"><h3>GjejPunë.net</h3></a>
+        <a href="index.php"><h3>GjejPunë.net</h3></a>
         <ul class="navbar-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="#">Shpalljet</a></li>
-          <li><a href="#">Lajme</a></li>
-          <li><a href="#">Rreth Nesh</a></li>
-          <li><a href="contact.html">Kontakt</a></li>
+          <li><a href="index.php">Home</a></li>
+          <li><a href="shpalljet.php">Shpalljet</a></li>
+          <li><a href="about-us.php">Rreth Nesh</a></li>
+          <li><a href="contact.php">Kontakt</a></li>
         </ul>
-        <div class="navbar-buttons">
-          <button class="btn default loginBtn">Kyçu</button>
-          <button class="btn action signupBtn">Krijo Llogari</button>
-        </div>
+        <?php include "../controller/loginButtons.php";?>
       </nav>
     </header>
     <main>
+      <?php
+        if(isset($_SESSION['username'])) {
+      ?>
+      <h1 style="display: flex; justify-content: center;">Welcome, <?php echo $_SESSION['username'];?></h1>
+      <?php
+        }
+      ?>
       <section class="hero-upper">
         <div class="container">
           <div class="hero-right">
@@ -86,10 +78,7 @@
           </div>
         </div>
         <div class="container">
-          <div class="navbar-buttons">
-            <button class="btn default loginBtn">Kyçu</button>
-            <button class="btn action signupBtn">Krijo Llogari</button>
-          </div>
+          <?php include "../controller/loginButtons.php";?>
         </div>
       </section>
       <section class="hero">
@@ -139,8 +128,8 @@
         <div class="container">
           <h2>Punët më të kërkuara</h2>
           <p class="section_paragraph-text">
-            Our space is designed to give you a different experience when
-            working with your team or personally
+              Në gjejpune.net mundohemi të gjejmë opsionet më të mira për
+              punësim në të gjitha qytetet në Kosovë dhe rajon!
           </p>
           <div class="section_arrows flex">
             <img src="img/arrow-left.svg" alt="arrow-left" class="arrow-left" />
@@ -247,13 +236,9 @@
             <ul class="left">
               <li class="kerkesat-options_element" id="arkitekt">Arkitekt</li>
               <li class="kerkesat-options_element" id="programer">Programer</li>
-              <li class="kerkesat-options_element active-option" id="kamarier">
-                Kamarier
-              </li>
+              <li class="kerkesat-options_element active-option" id="kamarier">Kamarier</li>
               <li class="kerkesat-options_element" id="mesues">Mësues</li>
-              <li class="kerkesat-options_element" id="mekanik">
-                Mekanik i veturave
-              </li>
+              <li class="kerkesat-options_element" id="mekanik">Mekanik i veturave</li>
             </ul>
             <div class="right"></div>
           </div>
@@ -354,51 +339,101 @@
           </article>
         </div>
       </section>
-      <section class="lajme">
+      <section class="shpallje">
         <div class="container">
           <div class="flex-responsive space-between">
-            <h2>Lajme për ty</h2>
+            <h2>Shpallje për ty</h2>
             <a class="flex secondary" href="#" class="flex">
               <p>Shiko më shumë</p>
               <img src="img/right arrow.svg" alt="right" />
             </a>
           </div>
-          <div class="lajme-articles">
-            <a href="#" class="lajme-articles_article">
-              <img src="img/news1.png" alt="news-image" />
+          <div class="shpallje-articles">
+            <article class="shpallje-articles_article">
+              <img src="img/programer.jpg" alt="job-image" />
               <div class="article_info">
-                <h4>Minimal workspace for inspirations</h4>
-                <p class="section_paragraph-text">Anthony Masional</p>
+                <h4>Front-End Developer</h4>
+                <div class="article_info-location">
+                  <p class="section_paragraph-text">Cacttus</p>
+                  <div class="flex">
+                    <img src="img/location.svg" alt="location-icon">
+                    <span>Prishtinë</span>
+                  </div>
+                </div>
+                <div class="article_info-hours flex">
+                  <img class="svg-primary_color" src="img/clock.svg" alt="location-icon">
+                  <span>Full Time</span>
+                </div>
               </div>
-            </a>
-            <a href="#" class="lajme-articles_article">
-              <img src="img/news2.png" alt="news-image" />
+            </article>
+            <article class="shpallje-articles_article">
+              <img src="img/architect.jpg" alt="job-image" />
               <div class="article_info">
-                <h4>Does productivity increase when working remotely ?</h4>
-                <p class="section_paragraph-text">Franck Martin</p>
+                <h4>Architect and 3D Visualizer</h4>
+                <div class="article_info-location">
+                  <p class="section_paragraph-text">Design Studio</p>
+                  <div class="flex">
+                    <img src="img/location.svg" alt="location-icon">
+                    <span>Prishtinë</span>
+                  </div>
+                </div>
+                <div class="article_info-hours flex">
+                  <img class="svg-primary_color" src="img/clock.svg" alt="location-icon">
+                  <span>Full Time</span>
+                </div>
               </div>
-            </a>
-            <a href="#" class="lajme-articles_article">
-              <img src="img/news3.png" alt="news-image" />
+            </article>
+            <article class="shpallje-articles_article">
+              <img src="img/data-science.jpg" alt="job-image" />
               <div class="article_info">
-                <h4>Morning routine to boost your mood</h4>
-                <p class="section_paragraph-text">Elizabeth swan</p>
+                <h4>Data Scientist</h4>
+                <div class="article_info-location">
+                  <p class="section_paragraph-text">Data Center</p>
+                  <div class="flex">
+                    <img src="img/location.svg" alt="location-icon">
+                    <span>Prishtinë</span>
+                  </div>
+                </div>
+                <div class="article_info-hours flex">
+                  <img class="svg-primary_color" src="img/clock.svg" alt="location-icon">
+                  <span>Full Time</span>
+                </div>
               </div>
-            </a>
-            <a href="#" class="lajme-articles_article">
-              <img src="img/news4.png" alt="news-image" />
+            </article>
+            <article class="shpallje-articles_article">
+              <img src="img/dentist.jpg" alt="job-image" />
               <div class="article_info">
-                <h4>5+ tips to find comfortable co-working space</h4>
-                <p class="section_paragraph-text">Mykola Ilschenko</p>
+                <h4>Dentist</h4>
+                <div class="article_info-location">
+                  <p class="section_paragraph-text">DentaKs</p>
+                  <div class="flex">
+                    <img src="img/location.svg" alt="location-icon">
+                    <span>Prishtinë</span>
+                  </div>
+                </div>
+                <div class="article_info-hours flex">
+                  <img class="svg-primary_color" src="img/clock.svg" alt="location-icon">
+                  <span><span style="color: var(--primary)">Part</span> Time</span>
+                </div>
               </div>
-            </a>
-            <a href="#" class="lajme-articles_article">
-              <img src="img/slider1.png" alt="news-image" />
+            </article>
+            <article class="shpallje-articles_article">
+              <img src="img/school-psychologist.jpg" alt="job-image" />
               <div class="article_info">
-                <h4>5+ tips to find comfortable co-working space</h4>
-                <p class="section_paragraph-text">Mykola Ilschenko</p>
+                <h4>Psikolog Shkolle</h4>
+                <div class="article_info-location">
+                  <p class="section_paragraph-text">Viva Fresh</p>
+                  <div class="flex">
+                    <img src="img/location.svg" alt="location-icon">
+                    <span>Prishtinë</span>
+                  </div>
+                </div>
+                <div class="article_info-hours flex">
+                  <img class="svg-primary_color" src="img/clock.svg" alt="location-icon">
+                  <span>Full Time</span>
+                </div>
               </div>
-            </a>
+            </article>
           </div>
         </div>
       </section>
@@ -430,15 +465,9 @@
             gjitha qytetet në Kosovë dhe rajon!
           </p>
           <div class="flex">
-            <a href="https://www.instagram.com"
-              ><img src="img/instagram.svg" alt="instagram-logo"
-            /></a>
-            <a href="https://www.youtube.com"
-              ><img src="img/youtube.svg" alt="youtube-logo"
-            /></a>
-            <a href="https://www.facebook.com"
-              ><img src="img/facebook.svg" alt="facebook-logo"
-            /></a>
+            <a href="https://www.instagram.com"><img src="img/instagram.svg" alt="instagram-logo"/></a>
+            <a href="https://www.youtube.com"><img src="img/youtube.svg" alt="youtube-logo"/></a>
+            <a href="https://www.facebook.com"><img src="img/facebook.svg" alt="facebook-logo"/></a>
           </div>
         </div>
         <div class="flex footer-right">
@@ -454,7 +483,7 @@
             </ul>
             <ul>
               <li><a href="#">Kompania</a></li>
-              <li><a href="#">Rreth Nesh</a></li>
+              <li><a href="about-us.php">Rreth Nesh</a></li>
               <li><a href="#">Çmimet</a></li>
             </ul>
           </div>
@@ -479,65 +508,6 @@
     <script src="OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
     <script src="js/owl.js"></script>
     <script src="js/app.js"></script>
-    <div id="modal-login">
-      <div class="modal-box">
-        <img class="closeBtn" src="img/close-button.svg" alt="close-button" />
-        <div class="container">
-          <h2 class="center-text">Mirëse u kthyet!</h2>
-          <form action="">
-            <label for="username">Username</label>
-            <input required type="text" name="username" id="username" />
-            <label for="password">Password</label>
-            <input required type="password" name="password" id="password" />
-            <div class="flex maxwidth">
-              <input type="submit" class="btn action" value="Log In" />
-              <button type="button" class="btn closeBtn signupBtn">
-                Sign Up
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-    <div id="modal-signup">
-      <div class="modal-box">
-        <img class="closeBtn" src="img/close-button.svg" alt="close-button" />
-        <div class="container">
-          <h2 class="center-text">Mirëse vini!</h2>
-          <form action="">
-            <label for="name">Name</label>
-            <input type="text" name="name" id="nameInput" />
-            <label class="err" id="nameError"></label>
-
-            <label for="surname">Surname</label>
-            <input type="text" name="surname" id="surnameInput" />
-            <label class="err" id="surnameError"></label>
-
-            <label for="username">Username</label>
-            <input type="text" name="username" id="usernameInput" />
-            <label class="err" id="usernameError"></label>
-
-            <label for="password">Password</label>
-            <input type="password" name="password" id="passwordInput" />
-            <label class="err" id="passwordError"></label>
-
-            <label for="email">email</label>
-            <input type="text" name="email" id="emailInput" />
-            <label class="err" id="emailError"></label>
-            <div class="flex maxwidth">
-              <input
-                type="submit"
-                id="signupSubmitBtn"
-                class="btn action"
-                value="Sign Up"
-              />
-              <button type="button" class="btn closeBtn loginBtn">
-                Log In
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
+    <?php include_once "../controller/modal.php"; ?>
   </body>
 </html>

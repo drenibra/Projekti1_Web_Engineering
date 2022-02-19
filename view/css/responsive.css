@@ -8,7 +8,7 @@
     .owl-carousel {
         width: auto;
     }
-    .lajme-articles {
+    .shpallje-articles {
         justify-content: center;
     }
     footer .container {
@@ -31,6 +31,13 @@
 }
 
 @media (max-width: 886px) {
+    .about-us_left {
+        width: 100%;
+        text-align: left;
+    }
+    .about-us_right {
+        width: 100%;
+    }
     .hero-upper .navbar-buttons {
         display: block;
         width: 100%;
@@ -120,6 +127,9 @@
 }
 
 @media (max-width: 768px) {
+    .kerkesat-options .left {
+        width: 100%;
+    }
     .hero-search {
         width: 100%;
         padding: 30px;
@@ -153,9 +163,6 @@
 }
 
 @media (max-width: 1111px) {
-    .flex-responsive {
-        flex-direction: column;
-    }
     .form-section .container {
         position: unset;
     }
@@ -178,6 +185,18 @@
     }
     .hero-content {
         width: 100%;
+    }
+    * , *:before, *:after {
+        box-sizing: border-box; 
+        -moz-box-sizing: border-box; 
+        -webkit-box-sizing: border-box; 
+        -ms-box-sizing: border-box;
+    }
+}
+
+@media (max-width: 500px) {
+    .shpallje-articles_article {
+        width: 100% !important;
     }
 }
 
