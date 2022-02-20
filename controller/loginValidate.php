@@ -12,10 +12,11 @@
             $i++;
             if($username == $user['username'] && $password == $user['password']){
                 session_start();
+                $_SESSION['name'] = $user['name'];
                 $_SESSION['username'] = $username;
                 $_SESSION['password'] = $password;
                 $_SESSION['role'] = $user['role'];
-
+                
                 echo "<script> window.location.replace('../view/index.php')</script>";
                 exit();
             } else{
@@ -24,7 +25,8 @@
                     echo '<script>
                             $("#modal-login").css("display", "block");
                             $("main, header, footer").css("filter", "blur(4px)");
-                        </script>';
+                            </script></div></div></div>';
+                    include "../controller/signupModal.php";
                     exit();
                 }
             }

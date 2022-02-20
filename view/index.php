@@ -26,17 +26,10 @@
         <div>
           <div>
             <ul>
-<<<<<<< HEAD:view/index.php
               <a href="index.php" class="hamburgerItem"><li>Home</li></a>
               <a href="shpalljet.php" class="hamburgerItem"><li>Shpalljet</li></a>
               <a href="about-us.php" class="hamburgerItem"><li>Rreth Nesh</li></a>
               <a href="contact.php" class="hamburgerItem"><li>Kontakt</li></a>
-=======
-              <a href="index.html" class="hamburgerItem"><li>Home</li></a>
-              <a href="shpalljet.html" class="hamburgerItem"><li>Shpalljet</li></a>
-              <a href="about-us.html" class="hamburgerItem"><li>Rreth Nesh</li></a>
-              <a href="contact.html" class="hamburgerItem"><li>Kontakt</li></a>
->>>>>>> 73522b4b6c7045f98b94ac3ab68c8e69e78502e1:index.html
             </ul>
           </div>
         </div>
@@ -46,17 +39,10 @@
       <nav class="container">
         <a href="index.php"><h3>GjejPunë.net</h3></a>
         <ul class="navbar-links">
-<<<<<<< HEAD:view/index.php
           <li><a href="index.php">Home</a></li>
           <li><a href="shpalljet.php">Shpalljet</a></li>
           <li><a href="about-us.php">Rreth Nesh</a></li>
           <li><a href="contact.php">Kontakt</a></li>
-=======
-          <li><a href="index.html">Home</a></li>
-          <li><a href="shpalljet.html">Shpalljet</a></li>
-          <li><a href="about-us.html">Rreth Nesh</a></li>
-          <li><a href="contact.html">Kontakt</a></li>
->>>>>>> 73522b4b6c7045f98b94ac3ab68c8e69e78502e1:index.html
         </ul>
         <?php include "../controller/loginButtons.php";?>
       </nav>
@@ -65,7 +51,7 @@
       <?php
         if(isset($_SESSION['username'])) {
       ?>
-      <h1 style="display: flex; justify-content: center;">Welcome, <?php echo $_SESSION['username'];?></h1>
+      <h1 style="display: flex; justify-content: center;">Mirësevini, <?php echo $_SESSION['name'];?></h1>
       <?php
         }
       ?>
@@ -357,7 +343,7 @@
         <div class="container">
           <div class="flex-responsive space-between">
             <h2>Shpallje për ty</h2>
-            <a class="flex secondary" href="#" class="flex">
+            <a class="flex secondary" href="shpalljet.php" class="flex">
               <p>Shiko më shumë</p>
               <img src="img/right arrow.svg" alt="right" />
             </a>
@@ -487,21 +473,17 @@
         <div class="flex footer-right">
           <div class="flex">
             <ul>
-              <li><a href="#">Punet</a></li>
-              <li><a href="#">Programer</a></li>
-              <li><a href="#">Arkitekt</a></li>
-              <li><a href="#">Kamarier</a></li>
-              <li><a href="#">Ekonomist</a></li>
-              <li><a href="#">Biolog</a></li>
-              <li><a href="#">Kontabilist</a></li>
+              <li><a href="shpalljet.php">Punet</a></li>
+              <li><a href="https://www.google.com/search?q=Programer">Programer</a></li>
+              <li><a href="https://www.google.com/search?q=Arkitekt">Arkitekt</a></li>
+              <li><a href="https://www.google.com/search?q=Kamarier">Kamarier</a></li>
+              <li><a href="https://www.google.com/search?q=Ekonomist">Ekonomist</a></li>
+              <li><a href="https://www.google.com/search?q=Biolog">Biolog</a></li>
+              <li><a href="https://www.google.com/search?q=Kontabilist">Kontabilist</a></li>
             </ul>
             <ul>
               <li><a href="#">Kompania</a></li>
-<<<<<<< HEAD:view/index.php
               <li><a href="about-us.php">Rreth Nesh</a></li>
-=======
-              <li><a href="about-us.html">Rreth Nesh</a></li>
->>>>>>> 73522b4b6c7045f98b94ac3ab68c8e69e78502e1:index.html
               <li><a href="#">Çmimet</a></li>
             </ul>
           </div>
@@ -526,6 +508,7 @@
     <script src="OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
     <script src="js/owl.js"></script>
     <script src="js/app.js"></script>
-    <?php include_once "../controller/modal.php"; ?>
+    <?php include "../controller/loginModal.php";
+    include "../controller/signupModal.php"; ?>
   </body>
 </html>

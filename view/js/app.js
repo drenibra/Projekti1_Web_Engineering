@@ -89,9 +89,9 @@ $(document).ready(function(){
             }
         }
     })
+    $(".kerkesat-options_element").click(function () {
+        $(".kerkesat-options_element").removeClass("active-option");
+        $(this).addClass("active-option");
+        $(".kerkesat-options .right").css("background-image", `url('img/${$(this).attr('id')}.jpg')`);
+    })
 });
-$(".kerkesat-options_element").click(function () {
-    $(".kerkesat-options_element").removeClass("active-option");
-    $(this).addClass("active-option");
-    $(".kerkesat-options .right").css("background-image", `url('img/${$(this).attr('id')}.jpg')`);
-})

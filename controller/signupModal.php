@@ -1,23 +1,4 @@
-<div id="modal-login">
-      <div class="modal-box">
-        <img class="closeBtn" src="img/close-button.svg" alt="close-button" />
-        <div class="container">
-          <h2 class="center-text">Mirëse u kthyet!</h2>
-          <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
-            <label for="username">Username</label>
-            <input required type="text" name="username" id="username"/>
-            <label for="password">Password</label>
-            <input required type="password" name="password" id="password"/>
-            <div class="flex maxwidth">
-              <input type="submit" name="loginBtn" class="btn action" value="Log In"/>
-              <button type="button" class="btn closeBtn signupBtn">Sign Up</button>
-            </div>
-          </form>
-          <?php require_once '../controller/loginValidate.php'; ?>
-        </div>
-      </div>
-    </div>
-    <div id="modal-signup">
+<div id="modal-signup">
       <div class="modal-box">
         <img class="closeBtn" src="img/close-button.svg" alt="close-button" />
         <div class="container">
@@ -44,11 +25,11 @@
             <label class="err" id="emailError"></label>
             <div class="flex maxwidth">
               <input type="submit" name="registerBtn" id="signupSubmitBtn" class="btn action" value="Sign Up"/>
-              <button type="button" class="btn closeBtn loginBtn">Log In</button>
+              <button type="button" class="btn loginBtn closeBtn">Log In</button>
             </div>
           </form>
           <?php
-            include_once '../controller/userController.php';
+            include '../controller/userController.php';
           ?>
         </div>
       </div>

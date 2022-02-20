@@ -87,6 +87,7 @@
     </main>
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/app.js"></script>
-    <?php include_once "../controller/modal.php"; ?>
+    <?php include_once "../controller/loginModal.php";
+      include_once "../controller/signupModal.php"; ?>
   </body>
 </html>

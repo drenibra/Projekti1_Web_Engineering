@@ -28,13 +28,8 @@
             <ul>
               <a href="index.php" class="hamburgerItem"><li>Home</li></a>
               <a href="#" class="hamburgerItem"><li>Shpalljet</li></a>
-<<<<<<< HEAD:view/contact.php
               <a href="about-us.php" class="hamburgerItem"><li>Rreth Nesh</li></a>
               <a href="contact.php" class="hamburgerItem"><li>Kontakt</li></a>
-=======
-              <a href="about-us.html" class="hamburgerItem"><li>Rreth Nesh</li></a>
-              <a href="contact.html" class="hamburgerItem"><li>Kontakt</li></a>
->>>>>>> 73522b4b6c7045f98b94ac3ab68c8e69e78502e1:contact.html
             </ul>
           </div>
         </div>
@@ -46,13 +41,8 @@
         <ul class="navbar-links">
           <li><a href="index.php">Home</a></li>
           <li><a href="#">Shpalljet</a></li>
-<<<<<<< HEAD:view/contact.php
           <li><a href="about-us.php">Rreth Nesh</a></li>
           <li><a href="contact.php">Kontakt</a></li>
-=======
-          <li><a href="about-us.html">Rreth Nesh</a></li>
-          <li><a href="contact.html">Kontakt</a></li>
->>>>>>> 73522b4b6c7045f98b94ac3ab68c8e69e78502e1:contact.html
         </ul>
         <?php include_once "../controller/loginButtons.php";?>
       </nav>
@@ -132,6 +122,7 @@
     </main>
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/app.js"></script>
-    <?php include_once "../controller/modal.php"; ?>
+    <?php include_once "../controller/loginModal.php";
+      include_once "../controller/signupModal.php"; ?>
   </body>
 </html>

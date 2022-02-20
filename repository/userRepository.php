@@ -23,8 +23,6 @@ class UserRepository {
         $statement = $conn->prepare($sql);
 
         $statement->execute([$id, $name, $surname, $email, $username, $password, $role]);
-
-        echo "<script>alert('User has been added successfully!');</script>";
     }
 
     function getAllUsers() {
@@ -52,10 +50,10 @@ class UserRepository {
     function updateUser($id, $name, $surname, $email, $username, $password, $role) {
         $conn = $this->connection;
 
-        $sql = "UPDATE user SET name = ?, surname = ?, email = ?, username = ?, password=? , role=? WHERE ID = ?";
+        $sql = "UPDATE user SET name = ?, surname = ?, email = ?, username = ?, password = ? , role = ? WHERE ID = ?";
 
         $statement = $conn->prepare($sql);
-        $statement->execute([$name, $surname, $email, $username, $password, $id, $role]);
+        $statement->execute([$name, $surname, $email, $username, $password, $role, $id]);
         echo "<script>alert('Update was successful')</script>";
     }
 
