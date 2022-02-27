@@ -11,47 +11,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/default-styles.css" />
-    <link rel="stylesheet" href="css/landing-page.css" />
+    <link rel="stylesheet" href="css/landing.css" />
     <link rel="stylesheet" href="css/responsive.css" />
     <link rel="shortcut icon" href="img/favicon-32x32.png" type="image/x-icon" />
     <link rel="stylesheet" href="OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css" />
     <link rel="stylesheet" href="OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css" />
     <title>Gjej Punë!</title>
+    <style>
+      form .flex-responsive {
+        flex-direction: column;
+      }
+      form .flex-responsive div {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+    </style>
   </head>
   <body>
-    <div class="menu-wrap">
-      <input type="checkbox" class="toggler" />
-      <div class="hamburger"><div class="hamburgerDiv"></div></div>
-      <div class="menu">
-        <div>
-          <div>
-            <ul>
-              <a href="index.php" class="hamburgerItem"><li>Home</li></a>
-              <a href="shpalljet.php" class="hamburgerItem"><li>Shpalljet</li></a>
-              <a href="about-us.php" class="hamburgerItem"><li>Rreth Nesh</li></a>
-              <a href="contact.php" class="hamburgerItem"><li>Kontakt</li></a>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <header>
-      <nav class="container">
-        <a href="index.php"><h3>GjejPunë.net</h3></a>
-        <ul class="navbar-links">
-          <li><a href="index.php">Home</a></li>
-          <li><a href="shpalljet.php">Shpalljet</a></li>
-          <li><a href="about-us.php">Rreth Nesh</a></li>
-          <li><a href="contact.php">Kontakt</a></li>
-        </ul>
-        <?php include "../controller/loginButtons.php";?>
-      </nav>
-    </header>
+    <?php include_once "hamburgerMenu.php";?>
+    <?php include_once "header.php";?>
     <main>
       <?php
         if(isset($_SESSION['username'])) {
       ?>
-      <h1 style="display: flex; justify-content: center;">Mirësevini, <?php echo $_SESSION['name'];?></h1>
+      <h1 style="display: flex; justify-content: center; text-align: center;">Mirësevini, <?php echo $_SESSION['name'];?></h1>
       <?php
         }
       ?>
@@ -77,52 +61,21 @@
             </p>
           </div>
         </div>
-        <div class="container">
-          <?php include "../controller/loginButtons.php";?>
-        </div>
       </section>
       <section class="hero">
         <div class="container">
-          <div class="hero-search">
-            <h2 class="whiteText">Gjej vendin e punës</h2>
-            <label for="qytetet">Lokacioni</label>
-            <select name="qytetet" id="qytetet">
-              <option value="prishtina">Prishtina</option>
-              <option value="Gjilani">Gjilani</option>
-              <option value="Prizren">Prizren</option>
-              <option value="Mitrovicë">Mitrovicë</option>
-              <option value="Gjakovë">Gjakovë</option>
-              <option value="Pejë">Pejë</option>
-              <option value="Suharekë">Suharekë</option>
-              <option value="Ferizaj">Ferizaj</option>
-              <option value="Deçan">Deçan</option>
-              <option value="Vitina">Vitina</option>
-              <option value="Istok">Istok</option>
-              <option value="Shtime">Shtime</option>
-              <option value="Podujeva">Podujeva</option>
-              <option value="Dragash">Dragash</option>
-              <option value="Vushtrri">Vushtrri</option>
-              <option value="Orahovac">Orahovac</option>
-              <option value="Llazicë">Llazicë</option>
-              <option value="Leposaviq">Leposaviq</option>
-              <option value="fusheKosove">Fushë Kosovë</option>
-            </select>
-            <label for="fusha">Fusha</label>
-            <select name="fusha" id="fusha">
-              <option value="programim">Programim</option>
-              <option value="arkitekture">Arkitekture</option>
-              <option value="agrikulture">Agrikulture</option>
-            </select>
-            <label for="pervoja">Pervoja</label>
-            <select name="pervoja" id="pervoja">
-              <option value="fillestar">Fillestar — Intern</option>
-              <option value="mesatar">Mesatar</option>
-              <option value="advanced">Advanced</option>
-              <option value="ekspert">Ekspert</option>
-            </select>
-            <button class="btn action fullWidth">KËRKO PUNË</button>
-          </div>
-        </div>
+          <?php include_once "../controller/searchForm.php"; 
+            if (isset($_POST['searchBtn'])) {
+              $qyteti = '';
+              $fusha = '';
+              $pervoja = '';
+  
+              if (isset($_POST['qyteti'])) $qyteti = $_POST['qyteti'];
+              if (isset($_POST['fusha'])) $fusha = $_POST['fusha'];
+              if (isset($_POST['pervoja'])) $pervoja = $_POST['pervoja'];
+              echo "<script>window.location.replace('shpalljet.php?qyteti=$qyteti&fusha=$fusha&pervoja=$pervoja')</script>";
+            }
+          ?>
       </section>
       <section class="punet">
         <div class="container">
@@ -133,16 +86,12 @@
           </p>
           <div class="section_arrows flex">
             <img src="img/arrow-left.svg" alt="arrow-left" class="arrow-left" />
-            <img
-              src="img/arrow-right.svg"
-              alt="arrow-right"
-              class="arrow-right"
-            />
+            <img src="img/arrow-right.svg" alt="arrow-right" class="arrow-right"/>
           </div>
         </div>
         <div class="container owl-carousel">
           <article class="job-article">
-            <img class="article-image" src="img/architect.jpg" alt="image1" />
+            <img class="article-image" src="img/architect.jpg" alt="image1"/>
             <div class="info">
               <h3>Arkitekt</h3>
               <p>
@@ -249,18 +198,10 @@
           <h2>Kush e përkrahë Gjej Punë?</h2>
           <p class="section_paragraph-text">Brendet më të mëdha në Kosovë</p>
           <div class="partneret flex">
-            <a href="https://vivafresh-rks.com/"
-              ><img src="img/viva-logo.png" alt="viva-logo"
-            /></a>
-            <a href="https://www.hibpetrol.com/"
-              ><img src="img/hib-logo.png" alt="hib-logo"
-            /></a>
-            <a href="https://www.raiffeisen-kosovo.com/"
-              ><img src="img/raiffeisen-logo.png" alt="raiffeisen-logo"
-            /></a>
-            <a href="https://www.elkosgroup.com/"
-              ><img src="img/elkos-logo.png" alt="elkos-logo"
-            /></a>
+            <a href="https://vivafresh-rks.com/"><img src="img/viva-logo.png" alt="viva-logo"/></a>
+            <a href="https://www.hibpetrol.com/"><img src="img/hib-logo.png" alt="hib-logo"/></a>
+            <a href="https://www.raiffeisen-kosovo.com/"><img src="img/raiffeisen-logo.png" alt="raiffeisen-logo"/></a>
+            <a href="https://www.elkosgroup.com/"><img src="img/elkos-logo.png" alt="elkos-logo"/></a>
           </div>
         </div>
       </section>
@@ -269,74 +210,73 @@
           <div class="flex-responsive space-between">
             <div>
               <div class="flex section-introduction">
-                <p>Rishikimet</p>
+                <p>Kritikat & Rishikimet</p>
                 <span class="line"></span>
               </div>
               <h2>Çka thonë klientët tanë</h2>
+              <?php if(isset($_SESSION['username'])) {?>
+                <p class="reviewBtn" style="cursor: pointer;">Deshironi te leni nje rishikim? Kliko <span style="text-decoration: underline;">ketu.</span></p>
+              <?php } ?>
             </div>
             <div class="section_arrows flex">
-              <img
-                src="img/arrow-left.svg"
-                alt="arrow-left"
-                class="arrow-left"
-              />
-              <img
-                src="img/arrow-right.svg"
-                alt="arrow-right"
-                class="arrow-right"
-              />
+              <img src="img/arrow-left.svg" alt="arrow-left" class="arrow-left" />
+              <img src="img/arrow-right.svg" alt="arrow-right" class="arrow-right" />
             </div>
           </div>
         </div>
+        <div class="kritika">
+          <div class="container">
+            <h4>Shkruani një rishikim</h4>
+            <form action="" method="post">
+              <img class="closeRishikimi" src="img/close-button.svg" alt="close-button">
+              <textarea name="mesazhi" cols="30" rows="10"></textarea>
+              <input type="submit" value="Dergo">
+            </form>
+            <?php
+              if (isset($_POST['mesazhi'])) {
+                $mesazhi = $_POST['mesazhi'];
+                $userId = $_SESSION['id'];
+                include_once "../repository/KritikaRepository.php";
+                include_once "../models/Kritika.php";
+                $kRepo = new KritikaRepository();
+                $kritika = new Kritika($userId, $mesazhi);
+                $kRepo->insertKritika($kritika);
+                echo "<script>alert('Keni derguar mesazhin me sukses!');
+                  window.location.replace('index.php');
+                </script>";
+              }
+            ?>
+          </div>
+        </div>
         <div class="container owl-carousel">
-          <article class="review-article">
-            <p>
-              Ekipi ynë ka punuar me GjejPune për gati 2 muaj sepse zyra jonë
-              dëshiron të bëjë zgjerim. Gjatë bashkpunimit me GjejPune, ne
-              ndjejmë një përvojë të re, mund të ndihemi duke punuar me një
-              hapësirë të bukur, moderne dhe komode. Faleminderit për GjejPune
-              dhe ekipin.
-            </p>
-            <div class="review-article_user flex">
-              <img src="img/user1.png" alt="user-profile" />
-              <div class="user_info">
-                <p class="user_info-name">Filan Fisteku</p>
-                <p class="user_info-job">Rekrutues Pune</p>
-              </div>
-            </div>
-          </article>
-          <article class="review-article">
-            <p>
-              Ekipi ynë ka punuar me GjejPune për gati 2 muaj sepse zyra jonë
-              dëshiron të bëjë zgjerim. Gjatë bashkpunimit me GjejPune, ne
-              ndjejmë një përvojë të re, mund të ndihemi duke punuar me një
-              hapësirë të bukur, moderne dhe komode. Faleminderit për GjejPune
-              dhe ekipin.
-            </p>
-            <div class="review-article_user flex">
-              <img src="img/user2.png" alt="user-profile" />
-              <div class="user_info">
-                <p class="user_info-name">Filan Fisteku</p>
-                <p class="user_info-job">Rekrutues Pune</p>
-              </div>
-            </div>
-          </article>
-          <article class="review-article">
-            <p>
-              Ekipi ynë ka punuar me GjejPune për gati 2 muaj sepse zyra jonë
-              dëshiron të bëjë zgjerim. Gjatë bashkpunimit me GjejPune, ne
-              ndjejmë një përvojë të re, mund të ndihemi duke punuar me një
-              hapësirë të bukur, moderne dhe komode. Faleminderit për GjejPune
-              dhe ekipin.
-            </p>
-            <div class="review-article_user flex">
-              <img src="img/user3.png" alt="user-profile" />
-              <div class="user_info">
-                <p class="user_info-name">Filan Fisteku</p>
-                <p class="user_info-job">Rekrutues Pune</p>
-              </div>
-            </div>
-          </article>
+          <?php
+            include_once "../repository/KritikaRepository.php";
+            include_once "../repository/userRepository.php";
+
+            $kRepo = new KritikaRepository();
+            $kritikat = $kRepo->getAllKritikat();
+            $uRepo = new userRepository();
+
+            foreach ($kritikat as $k) {
+                $user = $uRepo->getUserById($k['userId']);
+                $picture = $user['picture'];
+                if ($user['picture'] == '') {
+                  $picture = 'user_white.svg';
+                }
+                echo "
+                <article class='review-article'>
+                  <p>$k[mesazhi]</p>
+                  <div class='review-article_user flex'>
+                    <img src='img/$picture' alt='user-profile' />
+                    <div class='user_info'>
+                      <p class='user_info-name'>$user[name] $user[surname]</p>
+                      <p class='user_info-job'>$user[puna]</p>
+                    </div>
+                  </div>
+                </article>
+                ";
+            }
+          ?>
         </div>
       </section>
       <section class="shpallje">
@@ -349,91 +289,17 @@
             </a>
           </div>
           <div class="shpallje-articles">
-            <article class="shpallje-articles_article">
-              <img src="img/programer.jpg" alt="job-image" />
-              <div class="article_info">
-                <h4>Front-End Developer</h4>
-                <div class="article_info-location">
-                  <p class="section_paragraph-text">Cacttus</p>
-                  <div class="flex">
-                    <img src="img/location.svg" alt="location-icon">
-                    <span>Prishtinë</span>
-                  </div>
-                </div>
-                <div class="article_info-hours flex">
-                  <img class="svg-primary_color" src="img/clock.svg" alt="location-icon">
-                  <span>Full Time</span>
-                </div>
-              </div>
-            </article>
-            <article class="shpallje-articles_article">
-              <img src="img/architect.jpg" alt="job-image" />
-              <div class="article_info">
-                <h4>Architect and 3D Visualizer</h4>
-                <div class="article_info-location">
-                  <p class="section_paragraph-text">Design Studio</p>
-                  <div class="flex">
-                    <img src="img/location.svg" alt="location-icon">
-                    <span>Prishtinë</span>
-                  </div>
-                </div>
-                <div class="article_info-hours flex">
-                  <img class="svg-primary_color" src="img/clock.svg" alt="location-icon">
-                  <span>Full Time</span>
-                </div>
-              </div>
-            </article>
-            <article class="shpallje-articles_article">
-              <img src="img/data-science.jpg" alt="job-image" />
-              <div class="article_info">
-                <h4>Data Scientist</h4>
-                <div class="article_info-location">
-                  <p class="section_paragraph-text">Data Center</p>
-                  <div class="flex">
-                    <img src="img/location.svg" alt="location-icon">
-                    <span>Prishtinë</span>
-                  </div>
-                </div>
-                <div class="article_info-hours flex">
-                  <img class="svg-primary_color" src="img/clock.svg" alt="location-icon">
-                  <span>Full Time</span>
-                </div>
-              </div>
-            </article>
-            <article class="shpallje-articles_article">
-              <img src="img/dentist.jpg" alt="job-image" />
-              <div class="article_info">
-                <h4>Dentist</h4>
-                <div class="article_info-location">
-                  <p class="section_paragraph-text">DentaKs</p>
-                  <div class="flex">
-                    <img src="img/location.svg" alt="location-icon">
-                    <span>Prishtinë</span>
-                  </div>
-                </div>
-                <div class="article_info-hours flex">
-                  <img class="svg-primary_color" src="img/clock.svg" alt="location-icon">
-                  <span><span style="color: var(--primary)">Part</span> Time</span>
-                </div>
-              </div>
-            </article>
-            <article class="shpallje-articles_article">
-              <img src="img/school-psychologist.jpg" alt="job-image" />
-              <div class="article_info">
-                <h4>Psikolog Shkolle</h4>
-                <div class="article_info-location">
-                  <p class="section_paragraph-text">Viva Fresh</p>
-                  <div class="flex">
-                    <img src="img/location.svg" alt="location-icon">
-                    <span>Prishtinë</span>
-                  </div>
-                </div>
-                <div class="article_info-hours flex">
-                  <img class="svg-primary_color" src="img/clock.svg" alt="location-icon">
-                  <span>Full Time</span>
-                </div>
-              </div>
-            </article>
+            <?php include_once '../controller/printShpalljet.php';
+              $shRepo = new ShpalljaRepository();
+              $shpalljet = $shRepo->getAllShpalljet();
+              $i = 0;
+              foreach ($shpalljet as $sh) {
+                if ($i < 3) {
+                  printo($sh);
+                  $i++;
+                }
+              }
+            ?>
           </div>
         </div>
       </section>
@@ -494,11 +360,11 @@
               <li><a href="#">Privacy Policy</a></li>
             </ul>
             <ul>
-              <li><a href="#">Kontakto</a></li>
-              <li><a href="#">contact@gjejpune.com</a></li>
-              <li><a href="#">di53843@ubt-uni.net</a></li>
-              <li><a href="#">em52473@ubt-uni.net</a></li>
-              <li><a href="#">+383 44 xxx xxx</a></li>
+              <li><a href="contact.php">Kontakto</a></li>
+              <li><a href="contact.php">contact@gjejpune.com</a></li>
+              <li><a href="contact.php">di53843@ubt-uni.net</a></li>
+              <li><a href="contact.php">em52473@ubt-uni.net</a></li>
+              <li><a href="contact.php">+383 44 xxx xxx</a></li>
             </ul>
           </div>
         </div>
@@ -509,6 +375,7 @@
     <script src="js/owl.js"></script>
     <script src="js/app.js"></script>
     <?php include "../controller/loginModal.php";
-    include "../controller/signupModal.php"; ?>
+      include "../controller/signupModal.php"; 
+    ?>
   </body>
 </html>

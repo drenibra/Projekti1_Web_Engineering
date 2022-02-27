@@ -1,3 +1,15 @@
+<?php
+    session_start();
+    include_once "../repository/userRepository.php";
+    $uRepo = new userRepository();
+    $users = $uRepo->getAllUsers();
+    $user = $uRepo->getUserById($_SESSION['id']);
+
+    if (!($_SESSION['role'] == 'admin')) {
+        header("location: index.php");
+    }
+    else {
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +18,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/default-styles.css">
+    <link rel="stylesheet" href="css/shpalljet-page.css">
     <link rel="stylesheet" href="css/table.css">
     <title>Dashboard</title>
     <style>
@@ -86,6 +99,40 @@
         }
         .admin-list li:hover {
             background: rgb(16 55 92 / 36%);
+            cursor: pointer;
+        }
+        .dashboard-Kompanite, .dashboard-Kontaktet, .dashboard-Kritikat, .dashboard-Shpalljet {
+            display: none;
+        }
+        .kontakt-personi:not(:first-of-type), .kritika-personi:not(:first-of-type) {
+            margin-top: 40px;
+        }
+        .kritika-personi {
+            position: relative;
+        }
+        .kritika-personi .btn {
+            position: absolute;
+            right: 0px;
+            top: -8px;
+        }
+        .article_info-location {
+            position: unset;
+        }
+        .dashboard-Shpalljet .flex {
+            flex-wrap: wrap;
+        }
+        .article_info {
+            margin-bottom: 0;
+        }
+        .deleteShpallja {
+            width: 30px !important;
+            height: 30px !important;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+        .shpallje-articles_article:hover {
+            cursor: unset;
         }
     </style>
 </head>
@@ -98,16 +145,16 @@
                     <h3>Dashboard</h3>
                 </div>
                 <div class="admin-info">
-                    <img src="img/dren_ibrahimi.jpeg" alt="user1">
-                    <h5>Dren Ibrahimi</h5>
-                    <p>Admin - Full Stack</p>
+                <?php echo "<img src='img/$user[picture]'>"; ?>
+                <h5><?php echo $_SESSION['name']." ".$_SESSION['surname']?></h5>
+                <p>Admin - <?php echo $_SESSION['puna'];?></p>
                 </div>
             </div>
         </nav>
         <ul class="admin-list">
             <li class="active-option">Perdoruesit</li>
             <li>Kompanite</li>
-            <li>Lajmet</li>
+            <li>Kontaktet</li>
             <li>Shpalljet</li>
             <li>Kritikat</li>
         </ul>
@@ -127,6 +174,8 @@
                             <th>Username</th>
                             <th>Password</th>
                             <th>Role</th>
+                            <th>Puna</th>
+                            <th>Pervoja</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
@@ -134,11 +183,6 @@
                     <tbody>
                     <tr>
                         <?php
-                            include_once "../repository/userRepository.php";
-                            $uRepo = new userRepository();
-
-                            $users = $uRepo->getAllUsers();
-
                             foreach ($users as $user) {
                                 echo 
                                 "<tr>
@@ -149,6 +193,8 @@
                                     <td>$user[username]</td>
                                     <td>$user[password]</td>
                                     <td>$user[role]</td>
+                                    <td>$user[puna]</td>
+                                    <td>$user[pervoja]</td>
                                     <td><a href='dashboard.php?x=edit&id=$user[id]'>Edit</a></td>
                                     <td><a href='deleteUser.php?id=$user[id]'>Delete</a></td>
                                 </tr>";
@@ -169,6 +215,138 @@
                     ?>
                 </div>
             </div>
+            <div class="dashboard-Kompanite">    
+                <h2>Kompanite</h2>
+                <div>
+                    <table class="styled-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>CEO</th>
+                                <th>Address</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <?php
+                                include_once "../repository/KompaniaRepository.php";
+                                $uRepo = new KompaniaRepository();
+
+                                $kompanite = $uRepo->getAllKompanite();
+
+                                foreach ($kompanite as $kompania) {
+                                    echo
+                                    "<tr>
+                                        <td>$kompania[id]</td>
+                                        <td>$kompania[name]</td>
+                                        <td>$kompania[email]</td>
+                                        <td>$kompania[ceo]</td>
+                                        <td>$kompania[address]</td>
+                                        <td><a href='deleteKompani.php?id=$kompania[id]'>Delete</a></td>
+                                    </tr>";
+                                }
+                            ?>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <?php
+                        if (isset($_GET['x'])) {
+                            switch ($_GET['x']) {
+                                case 'edit';
+                                include_once "edit.php";    
+                            }
+                        } 
+                    ?>
+                </div>
+            </div>
+            <div class="dashboard-Kontaktet">
+                <h2>Kontaktet</h2>
+                <?php 
+                    include_once "../repository/KontaktRepository.php";
+                    $kontaktRepo = new KontaktRepository();
+
+                    $kontaktet = $kontaktRepo->getAllKontaktet();
+
+                    foreach ($kontaktet as $k) {
+                        echo "
+                        <div class='kontakt-personi'>
+                            <h4>$k[emri] $k[mbiemri] - $k[email] : $k[nrTel]</h4>
+                            <hr>
+                            <p>$k[mesazhi]</p>
+                        </div>
+                        ";
+                    }
+                ?>
+            </div>
+            <div class="dashboard-Shpalljet">
+                <h2>Shpalljet</h2>
+                <div class="flex">
+                    <?php 
+                        include_once "../repository/ShpalljaRepository.php";
+
+                        
+                        $shRepo = new ShpalljaRepository();
+                        $shpalljet = $shRepo->getAllShpalljet();
+                        function printo($sh) {
+                            $shRepo = new ShpalljaRepository();
+                            $kompania = $shRepo->getKompaniaById($sh['kompani']);
+                            echo "
+                            <article class='shpallje-articles_article'>
+                                <a href='deleteShpallja.php?id=$sh[id]'><img src='img/close-button.svg' class='deleteShpallja' alt='job-image'/></a>
+                                <img src='img/$sh[foto]' alt='job-image'/>
+                                <div class='article_info'>
+                                <h4>$sh[titulli]</h4>
+                                <div class='article_info-location'>
+                                    <p class='section_paragraph-text'>$kompania[name]</p>
+                                    <div class='flex'>
+                                    <img src='img/location.svg' alt='location-icon'>
+                                    <span>$sh[lokacioni]</span>
+                                    </div>
+                                </div>
+                                <div class='article_info-hours flex'>
+                                    <img class='svg-primary_color' src='img/clock.svg' alt='location-icon'>".
+                                    ($sh['employment'] == 'Full-Time' ? '<span>'.$sh['employment'].'</span>' : 
+                                    '<span><span style="color: var(--primary)">Part</span> Time</span>')  
+                                ."</div>
+                                </div>
+                            </article>
+                            ";
+                        }
+
+                        foreach ($shpalljet as $sh) {
+                            printo($sh);
+                        }
+                        ?>
+                    </div>
+            </div>
+            <div class="dashboard-Kritikat">
+                <h2>Kritikat dhe Rishikimet</h2>
+                <?php 
+                    include_once "../repository/KritikaRepository.php";
+                    include_once "../repository/userRepository.php";
+
+                    $kRepo = new KritikaRepository();
+                    $kritikat = $kRepo->getAllKritikat();
+                    $uRepo = new userRepository();
+
+                    foreach ($kritikat as $kritika) {
+                        $user = $uRepo->getUserById($kritika['userId']);
+                        echo "
+                        <div class='kritika-personi'>
+                            <a href='../controller/deleteKritika.php?id=$kritika[userId]' class='btn'>Delete</a>
+                            <h4>$user[name] $user[surname] - $user[email] : $user[role]</h4>
+                            <hr>
+                            <p>$kritika[mesazhi]</p>
+                        </div>
+                        ";
+                    }
+                ?>
+            </div>
         </div>
     </main>
     <script src="js/jquery-3.6.0.min.js"></script>
@@ -183,3 +361,7 @@
     </script>
 </body>
 </html>
+
+<?php
+    }
+?>

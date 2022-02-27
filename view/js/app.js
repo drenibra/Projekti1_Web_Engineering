@@ -18,7 +18,6 @@ $(document).ready(function(){
         $("main, header, footer").css("filter", "blur(4px)");
     })
     $("#signupSubmitBtn").click((e) => {
-        console.log('test');
         var nameRe = /^[A-Z][a-z]*/,
         usernameRe = /^\w{5,10}$/,
         emailRe = /^[^@\s]+@[^@\s]+\.[^@\s]+$/,
@@ -93,5 +92,11 @@ $(document).ready(function(){
         $(".kerkesat-options_element").removeClass("active-option");
         $(this).addClass("active-option");
         $(".kerkesat-options .right").css("background-image", `url('img/${$(this).attr('id')}.jpg')`);
+    })
+    $(".reviewBtn").click(function() {
+        $(".kritika").css("display", "flex");
+    })
+    $(".closeRishikimi").click(function() {
+        $(".kritika").css("display", "none");
     })
 });

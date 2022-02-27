@@ -4,7 +4,14 @@
     $ur = new UserRepository();
 
     $userId = $_GET['id'];
-    $userUndo = $ur->getUserById($userId);
-
-    $ur->deleteUser($userId);
+    $user = $ur->getUserById($userId);
+    if ($user['role'] == 'admin') {
+        echo "<script>
+                alert('Cannot remove an admin!');
+                window.location.replace('dashboard.php');
+            </script>";
+    }
+    else {
+        $ur->deleteUser($userId);
+    }
 ?>

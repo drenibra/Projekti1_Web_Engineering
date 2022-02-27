@@ -64,7 +64,8 @@ p {
 .about-us_right button {
     width: 100%;
 }
-a.btn {
+
+.about-us_right a.btn {
     margin-top: 20px;
     width: 100%;
     background-color: rgb(233, 233, 233);

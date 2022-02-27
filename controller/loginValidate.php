@@ -10,9 +10,13 @@
         $i=0;
         foreach($users as $user){
             $i++;
-            if($username == $user['username'] && $password == $user['password']){
+            if(($username == $user['username'] || $username == $user['email']) && $password == $user['password']){
                 session_start();
+                $_SESSION['id'] = $user['id'];
                 $_SESSION['name'] = $user['name'];
+                $_SESSION['surname'] = $user['surname'];
+                $_SESSION['puna'] = $user['puna'];
+                $_SESSION['pervoja'] = $user['pervoja'];
                 $_SESSION['username'] = $username;
                 $_SESSION['password'] = $password;
                 $_SESSION['role'] = $user['role'];

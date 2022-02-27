@@ -19,34 +19,8 @@
     <title>Kontakt - Gjej Punë!</title>
   </head>
   <body>
-    <div class="menu-wrap">
-      <input type="checkbox" class="toggler"/>
-      <div class="hamburger"><div class="hamburgerDiv"></div></div>
-      <div class="menu">
-        <div>
-          <div>
-            <ul>
-              <a href="index.php" class="hamburgerItem"><li>Home</li></a>
-              <a href="#" class="hamburgerItem"><li>Shpalljet</li></a>
-              <a href="about-us.php" class="hamburgerItem"><li>Rreth Nesh</li></a>
-              <a href="contact.php" class="hamburgerItem"><li>Kontakt</li></a>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <header>
-      <nav class="container">
-        <a href="index.php"><h3>GjejPunë.net</h3></a>
-        <ul class="navbar-links">
-          <li><a href="index.php">Home</a></li>
-          <li><a href="#">Shpalljet</a></li>
-          <li><a href="about-us.php">Rreth Nesh</a></li>
-          <li><a href="contact.php">Kontakt</a></li>
-        </ul>
-        <?php include_once "../controller/loginButtons.php";?>
-      </nav>
-    </header>
+    <?php include_once "hamburgerMenu.php";?>
+    <?php include_once "header.php";?>
     <main>
       <section class="hero">
         <div class="container">
@@ -67,54 +41,51 @@
                   <a href="#">+383 44 xxx xxx</a>
                 </div>
               </div>
+              <?php if(!isset($_SESSION['username'])) {
+                ?>
               <div class="form-section_left--item flex">
                 <img class="svg-primary_color" src="img/chat.svg" alt="phone"/>
                 <div>
-                  <p>Ose komunikoni me neve</p>
-                  <button class="btn action">Chat</button>
+                  <p>Ose regjistrohuni si perdorues</p>
+                  <button class="btn action signupBtn">Regjistrohu</button>
                 </div>
               </div>
+              <?php }?>
             </div>
             <div class="form-section_right">
               <h2>Rezervoni nje takim</h2>
               <p>
                 Për të planifikuar kohën për të folur me një nga përfaqësuesit
-                tanë të shitjeve, plotësoni formularin, më pas klikoni "tjetër"
-                për të zgjedhur një datë dhe orë që funksionon për ju.
+                tanë, plotësoni formularin, më pas klikoni "dergo" dhe do te ju njoftojme se shpejti.
               </p>
-              <form action="">
+              <form action="" method="post">
                 <div class="flex-responsive">
                   <div>
                     <label for="emri">Emri</label>
-                    <input required type="text" id="emri"/>
+                    <input required name="emri" type="text" id="emri"/>
                   </div>
                   <div>
                     <label for="mbiemri">Mbiemri</label>
-                    <input required type="text" id="mbiemri"/>
+                    <input required name="mbiemri" type="text" id="mbiemri"/>
                   </div>
                 </div>
                 <div class="flex-responsive">
                   <div>
                     <label for="email">Email</label>
-                    <input required type="text" id="email"/>
+                    <input required name="email" type="text" id="email"/>
                   </div>
                   <div>
                     <label for="nrTelefonit">Nr. Telefonit</label>
-                    <input required type="text" id="nrTelefonit"/>
+                    <input required name="nrTel" type="text" id="nrTelefonit"/>
                   </div>
                 </div>
-                <div class="flex-responsive">
-                  <div>
-                    <label for="titulli">Titulli i Punës</label>
-                    <input required type="text" id="titulli"/>
-                  </div>
-                  <div>
-                    <label for="vitet">Vitet e Pervojës</label>
-                    <input required type="number" id="vitet"/>
-                  </div>
+                <div>
+                  <label for="mesazhi">Mesazhi</label><br>
+                  <textarea name="mesazhi" cols="30" rows="10" class="fullWidth" maxlength="255" required></textarea>
                 </div>
-                <input type="submit" class="btn action maxwidth" value="Send"/>
+                <input type="submit" class="btn action maxwidth" value="Dërgo" name="submitContact"/>
               </form>
+              <?php include_once "../controller/contactValidate.php";?>
             </div>
           </div>
         </div>

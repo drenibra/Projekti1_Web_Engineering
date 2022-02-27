@@ -17,36 +17,17 @@
     <link rel="stylesheet" href="OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css"/>
     <link rel="shortcut icon" href="img/favicon-32x32.png" type="image/x-icon"/>
     <title>Rreth Nesh - Gjej Punë!</title>
+    <style>
+      .dashboard {
+          margin-top: unset !important;
+          width: unset !important;
+          background-color: unset !important;
+      }
+    </style>
   </head>
   <body>
-    <div class="menu-wrap">
-      <input type="checkbox" class="toggler"/>
-      <div class="hamburger"><div class="hamburgerDiv"></div></div>
-      <div class="menu">
-        <div>
-          <div>
-            <ul>
-              <a href="index.php" class="hamburgerItem"><li>Home</li></a>
-              <a href="shpalljet.php" class="hamburgerItem"><li>Shpalljet</li></a>
-              <a href="about-us.php" class="hamburgerItem"><li>Rreth Nesh</li></a>
-              <a href="contact.php" class="hamburgerItem"><li>Kontakt</li></a>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <header>
-      <nav class="container">
-        <a href="index.php"><h3>GjejPunë.net</h3></a>
-        <ul class="navbar-links">
-          <li><a href="index.php">Home</a></li>
-          <li><a href="shpalljet.php">Shpalljet</a></li>
-          <li><a href="about-us.php">Rreth Nesh</a></li>
-          <li><a href="contact.php">Kontakt</a></li>
-        </ul>
-        <?php include_once "../controller/loginButtons.php";?>
-      </nav>
-    </header>
+    <?php include_once "hamburgerMenu.php";?>
+    <?php include_once "header.php";?>
     <main>
       <section class="hero">
         <div class="container">

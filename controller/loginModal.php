@@ -4,7 +4,7 @@
         <div class="container">
         <h2 class="center-text">Mirëse u kthyet!</h2>
         <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
-        <label for="username">Username</label>
+        <label for="username">Username/Email</label>
         <input required type="text" name="username" id="username"/>
         <label for="password">Password</label>
         <input required type="password" name="password" id="password"/>

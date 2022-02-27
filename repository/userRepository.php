@@ -18,11 +18,12 @@ class UserRepository {
         $username = $user->getUsername();
         $password = $user->getPassword();
         $role = 'user';
+        $puna = $user->getPuna();
+        $pervoja = $user->getPervoja();
 
-        $sql = "INSERT INTO user (id, name, surname, email, username, password, role) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO user (id, name, surname, email, username, password, role, puna, pervoja, picture) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $statement = $conn->prepare($sql);
-
-        $statement->execute([$id, $name, $surname, $email, $username, $password, $role]);
+        $statement->execute([$id, $name, $surname, $email, $username, $password, $role, $puna, $pervoja, '']);
     }
 
     function getAllUsers() {
@@ -46,14 +47,13 @@ class UserRepository {
 
         return $user;
     }
-
-    function updateUser($id, $name, $surname, $email, $username, $password, $role) {
+    function updateUser($id, $name, $surname, $email, $username, $password, $role, $puna, $pervoja, $picture) {
         $conn = $this->connection;
 
-        $sql = "UPDATE user SET name = ?, surname = ?, email = ?, username = ?, password = ? , role = ? WHERE ID = ?";
+        $sql = "UPDATE user SET name = ?, surname = ?, email = ?, username = ?, password = ? , role = ?, puna = ?, pervoja = ?, picture = ? WHERE ID = ?";
 
         $statement = $conn->prepare($sql);
-        $statement->execute([$name, $surname, $email, $username, $password, $role, $id]);
+        $statement->execute([$name, $surname, $email, $username, $password, $role, $puna, $pervoja, $picture, $id]);
         echo "<script>alert('Update was successful')</script>";
     }
 

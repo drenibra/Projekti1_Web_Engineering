@@ -6,14 +6,18 @@
         private $email;
         private $username;
         private $password;
+        private $puna;
+        private $pervoja;
 
-        function __construct($i, $n, $s, $e, $u, $p) {
+        function __construct($i, $n, $s, $e, $u, $p, $pu, $pe) {
             $this->id = $i;
             $this->name = $n;
             $this->surname = $s;
             $this->email = $e;
             $this->username = $u;
             $this->password = $p;
+            $this->puna = $pu;
+            $this->pervoja = $pe;
         }
 
         function getId() {
@@ -33,6 +37,12 @@
         }
         function getPassword() {
             return $this->password;
+        }
+        function getPuna() {
+            return $this->puna;
+        }
+        function getPervoja() {
+            return $this->pervoja;
         }
     }
 ?>

@@ -1,7 +1,4 @@
 @media (max-width: 1240px) {
-    .container {
-        justify-content: center !important;
-    }
     .punet .container:last-of-type {
         width: auto;
     }

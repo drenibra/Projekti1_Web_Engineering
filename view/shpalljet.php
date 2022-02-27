@@ -17,93 +17,39 @@
     <link rel="stylesheet" href="OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css" />
     <link rel="stylesheet" href="OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css" />
     <title>Gjej Punë!</title>
+    <style>
+      form {
+        max-width: unset;
+      }
+    </style>
   </head>
   <body>
-    <div class="menu-wrap">
-      <input type="checkbox" class="toggler" />
-      <div class="hamburger"><div class="hamburgerDiv"></div></div>
-      <div class="menu">
-        <div>
-          <div>
-            <ul>
-              <a href="index.php" class="hamburgerItem"><li>Home</li></a>
-              <a href="#" class="hamburgerItem"><li>Shpalljet</li></a>
-              <a href="about-us.php" class="hamburgerItem"><li>Rreth Nesh</li></a>
-              <a href="contact.php" class="hamburgerItem"><li>Kontakt</li></a>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <header>
-      <nav class="container">
-        <a href="index.php"><h3>GjejPunë.net</h3></a>
-        <ul class="navbar-links">
-          <li><a href="index.php">Home</a></li>
-          <li><a href="#">Shpalljet</a></li>
-          <li><a href="about-us.php">Rreth Nesh</a></li>
-          <li><a href="contact.php">Kontakt</a></li>
-        </ul>
-        <?php include_once "../controller/loginButtons.php";?>
-      </nav>
-    </header>
+    <?php include_once "hamburgerMenu.php";?>
+    <?php include_once "header.php";?>
     <main>
       <section class="hero-upper">
         <div class="container">
           <div class="hero-right">
             <div class="flex-responsive">
-              <p class="section-introduction">Introducing</p>
+              <p class="section-introduction">Shpalljet</p>
               <span class="line"></span>
             </div>
             <h1>Gjej vendin e punës</h1>
           </div>
-          <div class="hero-left">
-              <div class="flex-responsive">
-                <div>
-                  <label for="qytetet">Qytetet</label>
-                  <select name="qytetet" id="qytetet">
-                      <option value="prishtina">Prishtina</option>
-                      <option value="Gjilani">Gjilani</option>
-                      <option value="Prizren">Prizren</option>
-                      <option value="Mitrovicë">Mitrovicë</option>
-                      <option value="Gjakovë">Gjakovë</option>
-                      <option value="Pejë">Pejë</option>
-                      <option value="Suharekë">Suharekë</option>
-                      <option value="Ferizaj">Ferizaj</option>
-                      <option value="Deçan">Deçan</option>
-                      <option value="Vitina">Vitina</option>
-                      <option value="Istok">Istok</option>
-                      <option value="Shtime">Shtime</option>
-                      <option value="Podujeva">Podujeva</option>
-                      <option value="Dragash">Dragash</option>
-                      <option value="Vushtrri">Vushtrri</option>
-                      <option value="Orahovac">Orahovac</option>
-                      <option value="Llazicë">Llazicë</option>
-                      <option value="Leposaviq">Leposaviq</option>
-                      <option value="fusheKosove">Fushë Kosovë</option>
-                  </select>
-                </div>
-                <div>
-                  <label for="fusha">Fusha</label>
-                  <select name="fusha" id="fusha">
-                    <option value="programim">Programim</option>
-                    <option value="arkitekture">Arkitekture</option>
-                    <option value="agrikulture">Agrikulture</option>
-                  </select>
-                </div>
-                <div>
-                  <label for="pervoja">Pervoja</label>
-                  <select name="pervoja" id="pervoja">
-                    <option value="fillestar">Fillestar — Intern</option>
-                    <option value="mesatar">Mesatar</option>
-                    <option value="advanced">Advanced</option>
-                    <option value="ekspert">Ekspert</option>
-                  </select>
-                </div>
-              </div>
-              <button class="btn action fullWidth">KËRKO PUNË</button>
-          </div>
-        </div>
+          <?php include_once "../controller/searchForm.php"; ?>
+        <?php
+          if (isset($_POST['searchBtn'])) {
+            $qyteti = '';
+            $fusha = '';
+            $pervoja = '';
+
+            if (isset($_POST['qyteti'])) $qyteti = $_POST['qyteti'];
+            if (isset($_POST['fusha'])) $fusha = $_POST['fusha'];
+            if (isset($_POST['pervoja'])) $pervoja = $_POST['pervoja'];
+            
+            echo "<script>window.location.replace('shpalljet.php?qyteti=$qyteti&fusha=$fusha&pervoja=$pervoja');</script>";
+          }
+        ?>
         <div class="container">
           <div class="navbar-buttons" <?php if(isset($_SESSION['username'])) echo'style="display:none"'; ?>>
             <button class="btn default loginBtn">Kyçu</button>
@@ -114,91 +60,15 @@
       <section class="hero">
         <div class="container">
           <div class="hero-articles">
-            <article class="shpallje-articles_article">
-              <img src="img/programer.jpg" alt="job-image" />
-              <div class="article_info">
-                <h4>Front-End Developer</h4>
-                <div class="article_info-location">
-                  <p class="section_paragraph-text">Cacttus</p>
-                  <div class="flex">
-                    <img src="img/location.svg" alt="location-icon">
-                    <span>Prishtinë</span>
-                  </div>
-                </div>
-                <div class="article_info-hours flex">
-                  <img class="svg-primary_color" src="img/clock.svg" alt="location-icon">
-                  <span>Full Time</span>
-                </div>
-              </div>
-            </article>
-            <article class="shpallje-articles_article">
-              <img src="img/architect.jpg" alt="job-image" />
-              <div class="article_info">
-                <h4>Architect and 3D Visualizer</h4>
-                <div class="article_info-location">
-                  <p class="section_paragraph-text">Design Studio</p>
-                  <div class="flex">
-                    <img src="img/location.svg" alt="location-icon">
-                    <span>Prishtinë</span>
-                  </div>
-                </div>
-                <div class="article_info-hours flex">
-                  <img class="svg-primary_color" src="img/clock.svg" alt="location-icon">
-                  <span>Full Time</span>
-                </div>
-              </div>
-            </article>
-            <article class="shpallje-articles_article">
-              <img src="img/data-science.jpg" alt="job-image" />
-              <div class="article_info">
-                <h4>Data Scientist</h4>
-                <div class="article_info-location">
-                  <p class="section_paragraph-text">Data Center</p>
-                  <div class="flex">
-                    <img src="img/location.svg" alt="location-icon">
-                    <span>Prishtinë</span>
-                  </div>
-                </div>
-                <div class="article_info-hours flex">
-                  <img class="svg-primary_color" src="img/clock.svg" alt="location-icon">
-                  <span>Full Time</span>
-                </div>
-              </div>
-            </article>
-            <article class="shpallje-articles_article">
-              <img src="img/dentist.jpg" alt="job-image" />
-              <div class="article_info">
-                <h4>Dentist</h4>
-                <div class="article_info-location">
-                  <p class="section_paragraph-text">DentaKs</p>
-                  <div class="flex">
-                    <img src="img/location.svg" alt="location-icon">
-                    <span>Prishtinë</span>
-                  </div>
-                </div>
-                <div class="article_info-hours flex">
-                  <img class="svg-primary_color" src="img/clock.svg" alt="location-icon">
-                  <span><span style="color: var(--primary)">Part</span> Time</span>
-                </div>
-              </div>
-            </article>
-            <article class="shpallje-articles_article">
-              <img src="img/school-psychologist.jpg" alt="job-image" />
-              <div class="article_info">
-                <h4>Psikolog Shkolle</h4>
-                <div class="article_info-location">
-                  <p class="section_paragraph-text">Viva Fresh</p>
-                  <div class="flex">
-                    <img src="img/location.svg" alt="location-icon">
-                    <span>Prishtinë</span>
-                  </div>
-                </div>
-                <div class="article_info-hours flex">
-                  <img class="svg-primary_color" src="img/clock.svg" alt="location-icon">
-                  <span>Full Time</span>
-                </div>
-              </div>
-            </article>
+            <?php include_once '../controller/printShpalljet.php';
+              $qyteti = '';
+              $fusha = '';
+              $pervoja = '';
+              if (isset($_GET['qyteti'])) $qyteti = $_GET['qyteti'];
+              if (isset($_GET['fusha'])) $fusha = $_GET['fusha'];
+              if (isset($_GET['pervoja'])) $pervoja = $_GET['pervoja'];
+              printShpalljet($qyteti, $fusha, $pervoja);
+            ?>
           </div>
         </div>
       </section>
