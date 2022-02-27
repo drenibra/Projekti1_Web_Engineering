@@ -94,33 +94,24 @@
             <img class="article-image" src="img/architect.jpg" alt="image1"/>
             <div class="info">
               <h3>Arkitekt</h3>
-              <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Voluptatibus nemo, veniam, amet consequuntur, debitis iure vel
-              </p>
-              <a href="#">Read more</a>
+              <p>Arkitektët përdorin aftësitë e tyre teknike dhe krijuese për të projektuar struktura që i përshtaten kërkesave të klientëve të tyre. Si arkitekt, ju do të projektoni ndërtesa të reja ose zgjerime ose ndryshime në strukturat ekzistuese dhe do të këshilloni për restaurimin dhe ruajtjen e pronave të vjetra.</p>
+              <a href="https://www.google.com/search?q=Arkitekt">Read more</a>
             </div>
           </article>
           <article class="job-article">
             <img class="article-image" src="img/programer.jpg" alt="image2" />
             <div class="info">
               <h3>Programer</h3>
-              <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Voluptatibus nemo, veniam, amet consequuntur, debitis iure vel
-              </p>
-              <a href="#">Read more</a>
+              <p>Një programues kompjuteri, ose programues i sistemeve, shkruan kodin për të ndihmuar aplikacionet softuerike të funksionojnë në mënyrë më efikase. Detyrat e tyre përfshijnë projektimin dhe përditësimin e zgjidhjeve softuerike, shkrimin dhe përditësimin e kodit burimor dhe menaxhimin e sistemeve të ndryshme operative.</p>
+              <a href="https://www.google.com/search?q=Programer">Read more</a>
             </div>
           </article>
           <article class="job-article">
             <img class="article-image" src="img/realestate.jpg" alt="image3" />
             <div class="info">
               <h3>Agjent i Patundshmërisë</h3>
-              <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Voluptatibus nemo, veniam, amet consequuntur, debitis iure vel
-              </p>
-              <a href="#">Read more</a>
+              <p>Agjentët e pasurive të paluajtshme janë profesionistë që ndihmojnë blerësit e shtëpive të gjejnë dhe blejnë një shtëpi të re ose hapësirë komerciale. Ata i ndihmojnë ata të blejnë dhe shesin shtëpi dhe udhëzojnë klientët përmes proceseve të negociatave për të marrë dollarin më të lartë për pronën e tyre kur shesin.</p>
+              <a href="https://www.google.com/search?q=real+estate+agent">Read more</a>
             </div>
           </article>
         </div>
